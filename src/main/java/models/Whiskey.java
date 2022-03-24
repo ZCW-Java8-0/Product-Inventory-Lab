@@ -4,8 +4,8 @@ public class Whiskey {
     private int id;
     private String name;
     private String brand;
-    private String sport;
+    private double alcConcentration;
     private int size;
     private int qty;
-    private float price;
+    private double price;
 }
