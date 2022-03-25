@@ -5,6 +5,8 @@ import services.Service;
 import services.SneakerService;
 import services.WhiskeyService;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.Arrays;
 
 public class App {
@@ -18,6 +20,20 @@ public class App {
     }
 
     public void init() {
+        try {
+            sneakerService.loadData();
+            whiskeyService.loadData();
+        } catch (FileNotFoundException e) {
+            try {
+                whiskeyService.write();
+                sneakerService.write();
+            } catch (IOException ex) {
+                ex.printStackTrace();
+            }
+
+        } catch (IOException e){
+            e.printStackTrace();
+        }
         console.printWelcome();
         console.printCommands();
         String input = "", current = "Sneaker";
@@ -39,6 +55,12 @@ public class App {
                 } else if (current.equals("Sneaker"))
                     inventoryOption(sneakerService, input);
             }
+        }
+        try {
+            sneakerService.write();
+            whiskeyService.write();
+        } catch (IOException e){
+            e.printStackTrace();
         }
     }
 

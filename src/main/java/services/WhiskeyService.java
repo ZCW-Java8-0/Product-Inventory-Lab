@@ -1,11 +1,15 @@
 package services;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.core.util.DefaultPrettyPrinter;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+import models.Sneaker;
 import models.Whiskey;
+import utils.CSVUtils;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.*;
+import java.util.*;
 
 public class WhiskeyService extends Service<Whiskey> {
     private int nextId = 1;
@@ -43,6 +47,58 @@ public class WhiskeyService extends Service<Whiskey> {
         if (whiskey == null)
             return false;
         return true;
+    }
+
+    public void write() throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        ObjectWriter writer = mapper.writer(new DefaultPrettyPrinter());
+        writer.writeValue(new File("whiskey.json"), inventory);
+//        String csvFile = "/Users/batman/Desktop/Sneaker.csv";
+//        FileWriter writer = new FileWriter(csvFile);
+//
+//        CSVUtils.writeLine(writer, new ArrayList<String>(Arrays.asList(String.valueOf(nextId))));
+//
+//        for (Whiskey s : inventory.values()) {
+//            List<String> list = new ArrayList<>();
+//            list.add(String.valueOf(s.getId()));
+//            list.add(s.getName());
+//            list.add(s.getBrand());
+//            list.add(String.valueOf(s.getAlcConcentration()));
+//            list.add(String.valueOf(s.getSize()));
+//            list.add(String.valueOf(s.getQty()));
+//            list.add(String.valueOf(s.getPrice()));
+//            CSVUtils.writeLine(writer, list);
+//        }
+//
+//        writer.flush();
+//        writer.close();
+    }
+
+    public void loadData() throws IOException {
+        ObjectMapper objectMapper = new ObjectMapper();
+        this.inventory = objectMapper.readValue(new File("whiskey.json"), new TypeReference<Map<Integer, Whiskey>>(){});
+//        String csvFile = "/Users/batman/Desktop/Sneaker.csv";
+//        String line = "";
+//        String csvSplitBy = ",";
+//
+//        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+//            nextId = Integer.parseInt(br.readLine());
+//
+//            while ((line = br.readLine()) != null) {
+//                String[] beer = line.split(csvSplitBy);
+//
+//                int id = Integer.parseInt(beer[0]);
+//                String name = beer[1];
+//                String brand = beer[2];
+//                double alcCon = Double.parseDouble(beer[3]);
+//                double size = Double.parseDouble(beer[4]);
+//                int qty = Integer.parseInt(beer[5]);
+//                double price = Double.parseDouble(beer[6]);
+//                inventory.put(id, new Whiskey(id, name, brand, alcCon, size, price, qty));
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
     }
 
     @Override
