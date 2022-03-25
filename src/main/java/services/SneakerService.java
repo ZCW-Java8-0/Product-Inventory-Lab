@@ -5,7 +5,7 @@ import models.Sneaker;
 import java.util.ArrayList;
 import java.util.List;
 
-public class SneakerService {
+public class SneakerService extends Service<Sneaker> {
     private int nextId = 1;
 
     private List<Sneaker> inventory = new ArrayList<>();
@@ -36,5 +36,20 @@ public class SneakerService {
             }
         }
         return false;
+    }
+
+    @Override
+    Sneaker findProduct(int id) {
+        return findSneaker(id);
+    }
+
+    @Override
+    public Sneaker[] findProductAll() {
+        return findProductAll();
+    }
+
+    @Override
+    public boolean deleteProduct(int id) {
+        return delete(id);
     }
 }

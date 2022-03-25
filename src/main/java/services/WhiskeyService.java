@@ -6,7 +6,7 @@ import models.Whiskey;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WhiskeyService {
+public class WhiskeyService extends Service<Whiskey> {
     private int nextId = 1;
 
     private List<Whiskey> inventory = new ArrayList<>();
@@ -37,6 +37,21 @@ public class WhiskeyService {
             }
         }
         return false;
+    }
+
+    @Override
+    Whiskey findProduct(int id) {
+        return findWhiskey(id);
+    }
+
+    @Override
+    public Whiskey[] findProductAll() {
+        return findAll();
+    }
+
+    @Override
+    public boolean deleteProduct(int id) {
+        return delete(id);
     }
 }
 
