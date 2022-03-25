@@ -76,4 +76,15 @@ public class Whiskey {
     public void setPrice(double price) {
         this.price = price;
     }
+
+    public String toString() {
+        return String.format("Product id: %d \n" +
+                "Product name: %s \n" +
+                "Product brand: %s \n"+
+                "Product Alcohol Concentration: %.2f \n" +
+                "Product size: %.2f \n"+
+                "Product price: %.2f \n" +
+                "Product quantity: %d \n",
+                getId(),getName(),getBrand(),getAlcConcentration(),getSize(),getPrice(),getQty());
+    }
 }
