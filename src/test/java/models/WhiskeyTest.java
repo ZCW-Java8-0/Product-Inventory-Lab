@@ -96,4 +96,29 @@ class WhiskeyTest {
         // then (3)
         Assertions.assertEquals(expected, testWhiskey.getPrice());
     }
+
+    @Test
+    public void constructorTest(){
+        // Given
+        int expectedId = 6;
+        String expectedName = "Stan Smith";
+        String expectedBrand = "Adidas";
+        Double expectedAlc = 0.30;
+        double expectedSize = 1.5;
+        double expectedPrice = 80.00f;
+        int expectedQty = 10;
+
+        // When
+        Whiskey testWhiskey = new Whiskey(expectedId, expectedName, expectedBrand,
+                expectedAlc, expectedSize,expectedPrice, expectedQty);
+
+        // then
+        Assertions.assertEquals(expectedId, testWhiskey.getId());
+        Assertions.assertEquals(expectedName, testWhiskey.getName());
+        Assertions.assertEquals(expectedBrand, testWhiskey.getBrand());
+        Assertions.assertEquals(expectedAlc, testWhiskey.getAlcConcentration());
+        Assertions.assertEquals(expectedSize, testWhiskey.getSize());
+        Assertions.assertEquals(expectedPrice, testWhiskey.getPrice());
+        Assertions.assertEquals(expectedQty, testWhiskey.getQty());
+    }
 }
