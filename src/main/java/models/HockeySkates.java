@@ -17,6 +17,7 @@ public class HockeySkates {
 
     }
 
+
     public Integer getId() {
         return id;
     }

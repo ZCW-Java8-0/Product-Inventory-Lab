@@ -10,7 +10,6 @@ public class HockeyStick {
         private Double price;
 
         public HockeyStick(){
-
         }
 
         public HockeyStick(Integer id, String name, String brand, Integer size, Integer qty, Double price) {

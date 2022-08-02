@@ -1,6 +1,7 @@
 package services;
 
 import models.HockeyStick;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class HockeyStickServiceTest {
@@ -15,7 +16,27 @@ public class HockeyStickServiceTest {
 
 
         HockeyStickService stickService = new HockeyStickService();
-        HockeyStick testHockeyStick = HockeyStickService.
+        HockeyStick testHockeyStick = HockeyStickService.create(expectedName,expectedBrand,expectedSize,expectedQty,expectedPrice);
+
+        String actualName = testHockeyStick.getName();
+        String actualBrand = testHockeyStick.getBrand();
+        Integer actualSize = testHockeyStick.getSize();
+        Integer actualQty = testHockeyStick.getQty();
+        Double actualPrice = testHockeyStick.getPrice();
+
+
+        Assertions.assertEquals(expectedName, actualName);
+        Assertions.assertEquals(expectedBrand, actualBrand);
+        Assertions.assertEquals(expectedSize, actualSize);
+        Assertions.assertEquals(expectedQty, actualQty);
+        Assertions.assertEquals(expectedPrice, actualPrice);
+
+
+
+
+
+
+
 
 
 
