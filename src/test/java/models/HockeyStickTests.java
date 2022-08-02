@@ -74,9 +74,33 @@ public class HockeyStickTests {
         Integer actualId = stick.getId();
 
         Assertions.assertEquals(expectedId,actualId);
+    }
+
+    @Test
+    public void  HockeyStickConstructor(){
+
+        Integer expectedId = 9876;
+        String expectedName = "covert";
+        String expectedBrand = "Warrior";
+        Integer expectedSize = 59;
+        Integer expectedQty = 3;
+        Double expectedPrice = 120.00;
+
+        HockeyStick testHockeyStick = new HockeyStick(expectedId,expectedName,expectedBrand,expectedSize,expectedQty,expectedPrice);
+
+        Assertions.assertEquals(expectedId, testHockeyStick.getId());
+        Assertions.assertEquals(expectedName, testHockeyStick.getName());
+        Assertions.assertEquals(expectedBrand, testHockeyStick.getBrand());
+        Assertions.assertEquals(expectedSize,testHockeyStick.getSize());
+        Assertions.assertEquals(expectedQty,testHockeyStick.getQty());
+        Assertions.assertEquals(expectedPrice,testHockeyStick.getPrice());
+
+        }
+
+
+
+
+
 
     }
 
-
-
-}
