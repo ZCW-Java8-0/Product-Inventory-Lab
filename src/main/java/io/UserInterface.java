@@ -1,4 +1,4 @@
-package models;
+package io;
 
 public interface UserInterface {
 }

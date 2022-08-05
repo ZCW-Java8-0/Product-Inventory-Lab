@@ -1,4 +1,4 @@
-package models;
+package io;
 
 public class Console {
     public static void printWelcome(){
