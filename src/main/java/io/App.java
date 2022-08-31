@@ -7,16 +7,16 @@ import java.util.Scanner;
 public class App {
     private HockeyStickService stickService = new HockeyStickService();
 
-    public static void main(String...args){
+    public static void main(String... args) {
         App application = new App();
         application.init();
     }
 
-    public void init(){
+    public void init() {
         Console.printWelcome();
     }
 
-    public String userInput(){
+    public String userInput() {
         Integer opt1 = 0;
         String opt2 = "";
         String opt3 = "";
@@ -25,7 +25,8 @@ public class App {
         Double opt6 = 0.0;
 
 
-        while (addMore = true){
+        while (addMore = true) {
+
             System.out.println("What do you wish to add to inventory? Press 1 for Stick 2 for Skate");
             Scanner scanner = new Scanner(String.valueOf(input));
             System.out.println();
@@ -40,7 +41,7 @@ public class App {
             System.out.println("How many would you like to add?");
             opt5 = Integer.valueOf(String.valueOf(scanner.hasNextInt()));
             System.out.println("Products I.D.?");
-            if(input = 1){
+            if (input = 1) {
                 HockeyStickService.create(o)
 
 
